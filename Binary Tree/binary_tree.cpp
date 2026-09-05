@@ -52,16 +52,31 @@ void inOrder (Node* root) {
     inOrder(root->right);
 }
 
+void postOrder (Node* root) {
+    if (root == NULL) {
+        return;
+    }
+
+    postOrder(root->left);
+    postOrder(root->right);
+
+    cout << root->data << endl;   
+}
+
 int main () {
     vector<int> preorder = {1, 2, -1, -1,  3, -1, -1};
 
     Node* root = binaryTree(preorder);
 
     cout << root->data << endl;
-    cout << root->left->data << endl;
-    cout << root->right->data << endl;
+    // cout << root->left->data << endl;
+    // cout << root->right->data << endl;
 
+    cout << endl;
     preOrder(root);
     cout << endl;
     inOrder(root);
+    cout << endl;
+    postOrder(root);
+    cout << endl;
 }
