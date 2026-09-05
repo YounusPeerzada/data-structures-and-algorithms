@@ -31,6 +31,17 @@ Node* binaryTree(vector<int> preorder) {
     return root;    
 }
 
+void preOrder (Node* root) {
+    if (root == NULL) {
+        return;
+    }
+
+    cout << root->data << endl;
+
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
 int main () {
     vector<int> preorder = {1, 2, -1, -1,  3, -1, -1};
 
@@ -39,4 +50,6 @@ int main () {
     cout << root->data << endl;
     cout << root->left->data << endl;
     cout << root->right->data << endl;
+
+    preOrder(root);
 }
